@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mis 15 · Morena</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: one phone-width paper card, watercolor bouquets framing each section */
+:root {
+  --paper: #fffaf8;
+  --backdrop: #f7e4e4;
+  --ink: #6b3f48;
+  --ink-soft: #8d6a70;
+  --rose: #c46a7e;
+  --rose-deep: #a9536a;
+  --gold-a: #b9806f;
+  --gold-b: #e2ab9b;
+  --sage: #7f9a80;
+  --line: #ecd3d5;
+  --script: "Great Vibes", "Snell Roundhand", "Apple Chancery", cursive;
+  --serif: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { background: var(--backdrop); }
+body {
+  background: var(--backdrop);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.55;
+  padding-left: max(0px, env(safe-area-inset-left, 0px));
+  padding-right: max(0px, env(safe-area-inset-right, 0px));
+}
+.card {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--paper);
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(169, 83, 106, .12);
+}
+.paperbg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+section, header, footer { position: relative; z-index: 1; padding-left: max(28px, env(safe-area-inset-left, 0px)); padding-right: max(28px, env(safe-area-inset-right, 0px)); text-align: center; }
+
+/* hero */
+.hero { padding-block: 210px 120px; }
+.hero canvas.bouquet { position: absolute; top: 0; left: 0; width: 100%; height: calc(100% + 150px); z-index: -1; }
+.eyebrow { font-size: .82rem; letter-spacing: .38em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; margin: 0; }
+.mis15 { font-family: var(--script); font-size: 3.4rem; line-height: 1; color: var(--rose); margin: .3rem 0 0; }
+.name {
+  font-family: var(--script); font-weight: 400;
+  font-size: clamp(5rem, 24vw, 7.4rem); line-height: 1.05; margin: .1rem 0 .4rem;
+  background: linear-gradient(100deg, var(--rose-deep) 10%, var(--gold-b) 45%, var(--gold-a) 60%, var(--rose-deep) 95%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  padding: 0 .15em;
+}
+.datebar { display: flex; align-items: center; justify-content: center; gap: .9rem; font-size: 1.15rem; letter-spacing: .18em; font-weight: 600; color: var(--ink); }
+.datebar span.big { font-size: 2.2rem; letter-spacing: 0; color: var(--rose-deep); font-weight: 500; }
+.datebar i { width: 1px; height: 2.4rem; background: var(--line); display: block; }
+
+/* generic section */
+.block { padding-block: 44px; }
+.h { font-family: var(--script); font-size: 2.9rem; color: var(--rose); line-height: 1.1; margin: 0 0 .5rem; font-weight: 400; }
+.quote { font-style: italic; font-size: 1.45rem; line-height: 1.5; max-width: 22ch; margin: 0 auto; text-wrap: balance; color: var(--ink); }
+.divider { display: block; width: 180px; height: 60px; margin: 0 auto; }
+.icon { width: 46px; height: 46px; stroke: var(--rose); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; margin: 0 auto .4rem; display: block; }
+.detail { margin: 0; font-size: 1.25rem; }
+.detail strong { font-weight: 600; display: block; font-size: 1.45rem; color: var(--rose-deep); }
+.muted { color: var(--ink-soft); }
+
+/* countdown */
+.count { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 360px; margin: 1rem auto 0; }
+.count div { border: 1px solid var(--line); border-radius: 999px 999px 14px 14px; padding: 14px 0 10px; background: rgba(255, 255, 255, .6); }
+.count b { display: block; font-size: 2.1rem; line-height: 1; font-weight: 500; color: var(--rose-deep); font-variant-numeric: tabular-nums; }
+.count small { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: .55rem; margin-top: 1.1rem;
+  padding: .75rem 1.6rem; border-radius: 999px;
+  background: var(--rose); color: #fff; text-decoration: none;
+  font-family: var(--serif); font-size: .95rem; letter-spacing: .13em; text-transform: uppercase; font-weight: 600;
+  border: 0; cursor: pointer; box-shadow: 0 6px 18px rgba(196, 106, 126, .3);
+  transition: transform .2s, background .2s;
+}
+.btn:hover { background: var(--rose-deep); transform: translateY(-1px); }
+.btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.btn.ghost { background: transparent; color: var(--rose-deep); border: 1px solid var(--rose); box-shadow: none; }
+.phone { display: inline-flex; align-items: center; gap: .6rem; margin-top: .9rem; font-size: 1.15rem; letter-spacing: .05em; user-select: all; }
+.copy { font: inherit; font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; background: none; border: 1px solid var(--line); color: var(--ink-soft); border-radius: 999px; padding: .2rem .7rem; cursor: pointer; user-select: none; }
+
+.map { display: block; width: 100%; max-width: 380px; aspect-ratio: 4 / 3; margin: 1.2rem auto 0; border: 0; border-radius: 18px; box-shadow: 0 6px 22px rgba(169, 83, 106, .16); }
+.closing { padding-block: 60px 230px; }
+.closing canvas.bouquet { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+.closing .sign { font-family: var(--script); font-size: 4.2rem; color: var(--rose-deep); line-height: 1; margin: .3rem 0 0; }
+
+#petals { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+@media (prefers-reduced-motion: reduce) { #petals { display: none; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+
+
+<div class="card" id="card">
+  <canvas class="paperbg" id="paper" aria-hidden="true"></canvas>
+  <canvas id="petals" aria-hidden="true"></canvas>
+
+  <header class="hero" id="hero">
+    <canvas class="bouquet" id="heroArt" aria-hidden="true"></canvas>
+    <p class="eyebrow">Te invito a celebrar</p>
+    <p class="mis15">mis 15</p>
+    <h1 class="name">Morena</h1>
+    <div class="datebar" aria-label="Sábado 27 de noviembre de 2027">
+      <span>SÁBADO</span><i></i><span class="big">27</span><i></i><span>NOV · 2027</span>
+    </div>
+  </header>
+
+  <section class="block">
+    <p class="quote">“Hay noches que se sueñan toda la vida. La mía llegó, y quiero que estés conmigo para vivirla.”</p>
+  </section>
+
+  <section class="block">
+    <canvas class="divider" data-seed="5" aria-hidden="true"></canvas>
+    <h2 class="h">Faltan</h2>
+    <div class="count" role="timer" aria-live="off">
+      <div><b id="d">–</b><small>días</small></div>
+      <div><b id="hh">–</b><small>horas</small></div>
+      <div><b id="mm">–</b><small>min</small></div>
+      <div><b id="ss">–</b><small>seg</small></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="11" width="32" height="29" rx="3"/><path d="M8 19h32M16 7v8M32 7v8"/><path d="M24 33c-3-2.2-5-3.8-5-6a2.6 2.6 0 0 1 5-1 2.6 2.6 0 0 1 5 1c0 2.2-2 3.8-5 6z"/></svg>
+    <h2 class="h">¿Cuándo?</h2>
+    <p class="detail"><strong>Sábado 27 de noviembre</strong>de 2027 · 21:00 hs</p>
+    <a class="btn ghost" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Mis%2015%20-%20Morena&amp;dates=20271128T000000Z/20271128T060000Z&amp;location=Jarana%20Eventos%2C%20Eva%20Per%C3%B3n%20y%203%20de%20Febrero%2C%20Fray%20Luis%20Beltr%C3%A1n&amp;details=%C2%A1Te%20espero%20para%20festejar%20mis%2015!">Agendar</a>
+  </section>
+
+  <section class="block">
+    <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 43s13-12.5 13-23a13 13 0 0 0-26 0c0 10.5 13 23 13 23z"/><circle cx="24" cy="20" r="4.5"/></svg>
+    <h2 class="h">¿Dónde?</h2>
+    <p class="detail"><strong>Jarana Eventos</strong>Eva Perón y 3 de Febrero<br><span class="muted">Fray Luis Beltrán</span></p>
+    <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Jarana%20Eventos%2C%20Eva%20Per%C3%B3n%20y%203%20de%20Febrero%2C%20Fray%20Luis%20Beltr%C3%A1n%2C%20Santa%20Fe">Cómo llegar</a>
+    <iframe class="map" title="Mapa: Jarana Eventos" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Eva%20Per%C3%B3n%20y%203%20de%20Febrero%2C%20Fray%20Luis%20Beltr%C3%A1n%2C%20Santa%20Fe&z=16&output=embed"></iframe>
+  </section>
+
+  <section class="block">
+    <canvas class="divider" data-seed="17" aria-hidden="true"></canvas>
+    <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M19 6h10l-1.5 7 6 8-3 2 7 19H10.5l7-19-3-2 6-8z"/><path d="M17.5 23h13"/></svg>
+    <h2 class="h">Dress code</h2>
+    <p class="detail"><strong id="dress">Elegante sport</strong></p>
+  </section>
+
+  <section class="block">
+    <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h32v20H20l-8 7v-7H8z"/><path d="M17 22l5 4 9-8"/></svg>
+    <h2 class="h">Confirmá tu asistencia</h2>
+    <p class="detail muted">Me ayudás muchísimo si me avisás si venís.</p>
+    <a class="btn" target="_blank" rel="noopener" href="https://wa.me/5493476403692?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20a%20los%2015%20de%20Morena%20%F0%9F%92%95">Confirmar por WhatsApp</a>
+    <div class="phone"><span id="tel">+54 9 3476 40-3692</span><button class="copy" id="copyBtn" type="button">Copiar</button></div>
+  </section>
+
+  <footer class="closing">
+    <canvas class="bouquet" id="endArt" aria-hidden="true"></canvas>
+    <p class="quote">Tu presencia es el mejor regalo.</p>
+    <p class="sign">¡Te espero!</p>
+    <p class="eyebrow" style="margin-top:.6rem">Morena</p>
+  </footer>
+</div>
+
+<script>
+// Watercolor floral painter (canvas 2D). Shared by the web invitation and the video.
+(function (g) {
+  function mulberry(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  var R = Math.random;
+  function rnd(a, b) { return a + (b - a) * R(); }
+
+  var PAL = {
+    rose: [[236, 154, 168], [226, 128, 146], [244, 183, 192], [214, 112, 132]],
+    blush: [[248, 205, 208], [242, 190, 196], [252, 222, 222]],
+    leaf: [[143, 168, 140], [118, 148, 120], [167, 186, 160], [126, 154, 140]],
+    euc: [[160, 182, 172], [140, 166, 158]],
+  };
+  function rgba(c, a) { return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')'; }
+  function pick(arr) { return arr[Math.floor(R() * arr.length)]; }
+  function shade(c, k) { return [Math.round(c[0] * k), Math.round(c[1] * k), Math.round(c[2] * k)]; }
+
+  function blobPath(ctx, x, y, r, n, jit) {
+    ctx.beginPath();
+    var pts = [];
+    for (var i = 0; i < n; i++) { var a = i / n * Math.PI * 2; var rr = r * (1 + rnd(-jit, jit)); pts.push([x + Math.cos(a) * rr, y + Math.sin(a) * rr]); }
+    for (var j = 0; j <= n; j++) {
+      var p = pts[j % n], q = pts[(j + 1) % n];
+      var mx = (p[0] + q[0]) / 2, my = (p[1] + q[1]) / 2;
+      if (j === 0) ctx.moveTo(mx, my); else ctx.quadraticCurveTo(p[0], p[1], mx, my);
+    }
+    ctx.closePath();
+  }
+
+  function wash(ctx, x, y, r, col, alpha) {
+    ctx.save();
+    ctx.filter = 'blur(' + Math.round(r * 0.18) + 'px)';
+    for (var i = 0; i < 4; i++) {
+      blobPath(ctx, x + rnd(-r, r) * .25, y + rnd(-r, r) * .25, r * rnd(.6, 1), 9, .35);
+      ctx.fillStyle = rgba(col, alpha * rnd(.5, 1));
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  // a petal from the flower center outward, with watercolour pooling at the edge
+  function petal(ctx, cx, cy, ang, inner, outer, width, col, alpha) {
+    var ca = Math.cos(ang), sa = Math.sin(ang);
+    function P(r, side) { var a = ang + side; return [cx + Math.cos(a) * r, cy + Math.sin(a) * r]; }
+    var b1 = P(inner, -width * .45), b2 = P(inner, width * .45);
+    var s1 = P(outer * .82, -width * 1.05), s2 = P(outer * .82, width * 1.05);
+    var tip = [cx + ca * outer, cy + sa * outer];
+    var t1 = P(outer * 1.02, -width * .45), t2 = P(outer * 1.02, width * .45);
+    var nx = -sa, ny = ca;
+    ctx.beginPath();
+    ctx.moveTo(b1[0], b1[1]);
+    ctx.bezierCurveTo(s1[0], s1[1], t1[0], t1[1], tip[0] + nx * -outer * .05 * rnd(-1, 1), tip[1] + ny * -outer * .05 * rnd(-1, 1));
+    ctx.bezierCurveTo(t2[0], t2[1], s2[0], s2[1], b2[0], b2[1]);
+    ctx.closePath();
+    var gr = ctx.createRadialGradient(cx, cy, inner, cx, cy, outer * 1.05);
+    gr.addColorStop(0, rgba(shade(col, .82), alpha));
+    gr.addColorStop(.55, rgba(col, alpha * .75));
+    gr.addColorStop(1, rgba(shade(col, 1.06).map(function (v) { return Math.min(255, v); }), alpha * .35));
+    ctx.fillStyle = gr; ctx.fill();
+    ctx.lineWidth = Math.max(1, outer * .02);
+    ctx.strokeStyle = rgba(shade(col, .72), alpha * .55);
+    ctx.stroke();
+  }
+
+  function edgeFill(ctx, fill, edge, lw) {
+    ctx.fillStyle = fill; ctx.fill();
+    ctx.save(); ctx.filter = 'blur(0.8px)'; ctx.lineWidth = lw; ctx.strokeStyle = edge; ctx.stroke(); ctx.restore();
+  }
+  function rose(ctx, x, y, r, col) {
+    col = col || pick(PAL.rose);
+    var light = col.map(function (v) { return Math.min(255, Math.round(v + (255 - v) * .45)); });
+    ctx.save();
+    var rot = rnd(0, Math.PI * 2);
+    // soft bleed halo
+    wash(ctx, x, y, r * 1.05, light, .35);
+    // outer petals: broad rounded lobes
+    var n = 6;
+    for (var i = 0; i < n; i++) {
+      var a = rot + i / n * 6.283 + rnd(-.2, .2);
+      var px = x + Math.cos(a) * r * .42, py = y + Math.sin(a) * r * .42;
+      blobPath(ctx, px, py, r * rnd(.5, .58), 10, .1);
+      var gr = ctx.createRadialGradient(x, y, r * .1, x, y, r);
+      gr.addColorStop(0, rgba(col, .55)); gr.addColorStop(.7, rgba(light, .7)); gr.addColorStop(1, rgba(col, .55));
+      edgeFill(ctx, gr, rgba(shade(col, .8), .35), Math.max(1, r * .02));
+    }
+    // inner cupped crescents, spiralling in
+    var k, steps = 7;
+    for (k = 0; k < steps; k++) {
+      var rr = r * (.62 - k * .075), a0 = rot + k * 2.1 + rnd(-.3, .3), span = rnd(2.4, 3.4);
+      var off = r * .05;
+      ctx.beginPath();
+      ctx.arc(x, y, rr, a0, a0 + span);
+      var mid = a0 + span / 2;
+      ctx.arc(x + Math.cos(mid) * off, y + Math.sin(mid) * off, rr * .78, a0 + span - .15, a0 + .15, true);
+      ctx.closePath();
+      var c2 = shade(col, 1 - k * .045);
+      edgeFill(ctx, rgba(c2, .5 + k * .05), rgba(shade(col, .7), .45), Math.max(1, r * .022));
+    }
+    // heart
+    blobPath(ctx, x, y, r * .1, 7, .2);
+    ctx.fillStyle = rgba(shade(col, .65), .6); ctx.fill();
+    ctx.restore();
+  }
+
+  function blossom(ctx, x, y, r, col) {
+    col = col || pick(PAL.blush);
+    ctx.save();
+    var rot = rnd(0, 6.28);
+    for (var i = 0; i < 5; i++) { var a = rot + i * 1.2566; blobPath(ctx, x + Math.cos(a) * r * .5, y + Math.sin(a) * r * .5, r * .45, 8, .12); edgeFill(ctx, rgba(col, .8), rgba(shade(col, .8), .4), Math.max(1, r * .03)); }
+    for (var j = 0; j < 7; j++) {
+      ctx.beginPath(); ctx.arc(x + rnd(-r, r) * .18, y + rnd(-r, r) * .18, r * .05, 0, 6.28);
+      ctx.fillStyle = 'rgba(196,150,96,.8)'; ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  function leaf(ctx, x, y, len, ang, col) {
+    col = col || pick(PAL.leaf);
+    var w = len * rnd(.22, .3);
+    ctx.save(); ctx.translate(x, y); ctx.rotate(ang);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(len * .3, -w, len * .75, -w * .8, len, 0);
+    ctx.bezierCurveTo(len * .75, w * .7, len * .3, w * .9, 0, 0);
+    var gr = ctx.createLinearGradient(0, -w, len, w);
+    gr.addColorStop(0, rgba(col, .8)); gr.addColorStop(1, rgba(col.map(function(v){return Math.min(255,v+40)}), .55));
+    ctx.fillStyle = gr; ctx.fill();
+    ctx.strokeStyle = rgba(shade(col, .8), .3); ctx.lineWidth = Math.max(1, len * .01); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(len * .04, 0); ctx.quadraticCurveTo(len * .5, -w * .08, len * .92, 0);
+    ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = Math.max(1, len * .015); ctx.stroke();
+    ctx.restore();
+  }
+
+  function sprig(ctx, x, y, len, ang) {
+    var col = pick(PAL.euc);
+    ctx.save(); ctx.translate(x, y); ctx.rotate(ang);
+    ctx.beginPath(); ctx.moveTo(0, 0); ctx.quadraticCurveTo(len * .5, len * .08, len, 0);
+    ctx.strokeStyle = rgba(shade(col, .7), .7); ctx.lineWidth = Math.max(1.5, len * .012); ctx.stroke();
+    for (var t = .15; t < 1; t += .16) {
+      for (var s = -1; s <= 1; s += 2) {
+        var px = len * t, py = len * .08 * 4 * t * (1 - t) * .5;
+        blobPath(ctx, px + s * len * .02, py + s * len * .07 * (1.1 - t), len * .055 * (1.15 - t * .6), 7, .12);
+        ctx.fillStyle = rgba(col, .55); ctx.fill();
+      }
+    }
+    ctx.restore();
+  }
+
+  function berries(ctx, x, y, len, ang) {
+    ctx.save(); ctx.translate(x, y); ctx.rotate(ang);
+    ctx.strokeStyle = 'rgba(150,120,110,.6)'; ctx.lineWidth = 1.5;
+    for (var i = 0; i < 6; i++) {
+      var a = rnd(-.5, .5), l = len * rnd(.5, 1);
+      ctx.beginPath(); ctx.moveTo(0, 0); ctx.quadraticCurveTo(l * .5, a * l * .3, Math.cos(a) * l, Math.sin(a) * l); ctx.stroke();
+      ctx.beginPath(); ctx.arc(Math.cos(a) * l, Math.sin(a) * l, len * .045, 0, 6.28);
+      ctx.fillStyle = 'rgba(226,150,160,.85)'; ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  // A bouquet cluster anchored at (x,y), spreading toward direction `dir` (radians)
+  function cluster(ctx, x, y, s, dir, seed) {
+    R = mulberry(seed || 1);
+    // back foliage
+    for (var i = 0; i < 13; i++) {
+      var a = dir + rnd(-1.5, 1.5);
+      leaf(ctx, x + Math.cos(a) * s * .25, y + Math.sin(a) * s * .25, s * rnd(.55, 1.0), a + rnd(-.3, .3));
+    }
+    for (var k = 0; k < 4; k++) { var a2 = dir + rnd(-1.3, 1.3); sprig(ctx, x, y, s * rnd(.8, 1.15), a2); }
+    for (var b = 0; b < 3; b++) { var a3 = dir + rnd(-1.2, 1.2); berries(ctx, x + Math.cos(a3) * s * .4, y + Math.sin(a3) * s * .4, s * .28, a3); }
+    // flowers
+    var spots = [[0, 0, .42], [.42, -.55, .3], [.42, .6, .28], [.75, .05, .2], [.2, 1.2, .17], [.25, -1.25, .16]];
+    spots.forEach(function (p, idx) {
+      var a = dir + p[1], d = s * p[0];
+      var fx = x + Math.cos(a) * d, fy = y + Math.sin(a) * d;
+      if (idx === 3 || idx === 4) blossom(ctx, fx, fy, s * p[2]);
+      else rose(ctx, fx, fy, s * p[2], idx === 0 ? PAL.rose[0] : null);
+    });
+    for (var m = 0; m < 4; m++) { var a4 = dir + rnd(-1.4, 1.4); leaf(ctx, x + Math.cos(a4) * s * .5, y + Math.sin(a4) * s * .5, s * rnd(.25, .4), a4 + rnd(-.4, .4)); }
+    R = Math.random;
+  }
+
+  function paper(ctx, w, h, seed) {
+    R = mulberry(seed || 9);
+    ctx.fillStyle = '#fffaf8'; ctx.fillRect(0, 0, w, h);
+    for (var i = 0; i < 14; i++) wash(ctx, rnd(0, w), rnd(0, h), rnd(w * .15, w * .35), pick(PAL.blush), .07);
+    R = Math.random;
+  }
+
+  g.Flora = { cluster: cluster, rose: rose, blossom: blossom, leaf: leaf, wash: wash, paper: paper, seedRandom: function (s) { R = mulberry(s); }, PAL: PAL };
+})(window);
+
+(function () {
+  var DPR = Math.min(2, window.devicePixelRatio || 1);
+  function setup(cv) {
+    var r = cv.getBoundingClientRect();
+    cv.width = Math.round(r.width * DPR); cv.height = Math.round(r.height * DPR);
+    var c = cv.getContext('2d'); c.setTransform(DPR, 0, 0, DPR, 0, 0);
+    return { c: c, w: r.width, h: r.height };
+  }
+  function paint() {
+    var p = setup(document.getElementById('paper'));
+    Flora.paper(p.c, p.w, p.h, 3);
+    var h = setup(document.getElementById('heroArt'));
+    var s = Math.min(h.w * .62, 300);
+    Flora.cluster(h.c, -s * .05, -s * .05, s, .8, 11);
+    Flora.cluster(h.c, h.w + s * .08, h.h - 150 + s * .22, s * .75, .8 + Math.PI, 23);
+    var e = setup(document.getElementById('endArt'));
+    Flora.cluster(e.c, e.w * .5, e.h + s * .12, s * .95, -Math.PI / 2, 31);
+    document.querySelectorAll('canvas.divider').forEach(function (cv) {
+      var d = setup(cv), seed = +cv.dataset.seed;
+      Flora.seedRandom(seed);
+      Flora.leaf(d.c, d.w / 2 - 14, d.h / 2 + 4, 62, Math.PI + .25);
+      Flora.leaf(d.c, d.w / 2 + 14, d.h / 2 + 4, 62, -.25);
+      Flora.rose(d.c, d.w / 2, d.h / 2, 22);
+    });
+  }
+  var lastW = 0;
+  function maybePaint() { var w = document.getElementById('card').clientWidth; if (w !== lastW) { lastW = w; paint(); } }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(maybePaint);
+  maybePaint();
+  window.addEventListener('resize', function () { clearTimeout(window.__rt); window.__rt = setTimeout(maybePaint, 150); });
+
+  // countdown to Sat 27 Nov 2027, 21:00 Argentina (UTC-3)
+  var target = Date.UTC(2027, 10, 28, 0, 0, 0);
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function tick() {
+    var ms = Math.max(0, target - Date.now());
+    var s = Math.floor(ms / 1000);
+    document.getElementById('d').textContent = Math.floor(s / 86400);
+    document.getElementById('hh').textContent = pad(Math.floor(s % 86400 / 3600));
+    document.getElementById('mm').textContent = pad(Math.floor(s % 3600 / 60));
+    document.getElementById('ss').textContent = pad(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var b = this, t = '+5493476403692';
+    function done(msg) { b.textContent = msg; setTimeout(function () { b.textContent = 'Copiar'; }, 1800); }
+    function fallback() { var r = document.createRange(); r.selectNodeContents(document.getElementById('tel')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Seleccionado'); }
+    try { navigator.clipboard.writeText(t).then(function () { done('Copiado'); }, fallback); } catch (e) { fallback(); }
+  });
+
+  // falling petals
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var cv = document.getElementById('petals'), ctx, W, H, P = [];
+    function size() { var r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * DPR; cv.height = Math.min(H, 9000) * DPR; ctx = cv.getContext('2d'); ctx.setTransform(DPR, 0, 0, DPR, 0, 0); }
+    size(); window.addEventListener('resize', size);
+    for (var i = 0; i < 14; i++) P.push({ x: Math.random() * W, y: Math.random() * 900, s: 6 + Math.random() * 8, v: .25 + Math.random() * .4, a: Math.random() * 6, w: .01 + Math.random() * .02 });
+    (function loop() {
+      ctx.clearRect(0, 0, W, H);
+      P.forEach(function (p) {
+        p.y += p.v; p.a += p.w; p.x += Math.sin(p.a) * .4;
+        if (p.y > 1100) { p.y = -20; p.x = Math.random() * W; }
+        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a);
+        ctx.beginPath(); ctx.ellipse(0, 0, p.s, p.s * .6, 0, 0, 6.283);
+        ctx.fillStyle = 'rgba(232,150,165,.45)'; ctx.fill(); ctx.restore();
+      });
+      requestAnimationFrame(loop);
+    })();
+  }
+})();
+</script>
+
+</body>
+</html>
