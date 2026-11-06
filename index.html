@@ -164,6 +164,13 @@ section, header, footer { text-align: center; padding-left: max(28px, env(safe-a
     <div class="phone"><span id="tel">+54 9 3476 40-3692</span><button class="copy" id="copyBtn" type="button">Copiar</button></div>
   </section>
 
+  <section class="block">
+    <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="20" width="30" height="20" rx="2"/><path d="M7 14h34v6H7zM24 14v26"/><path d="M24 14c-3-6-10-6-9-1 1 3 6 1 9 1zM24 14c3-6 10-6 9-1-1 3-6 1-9 1z"/></svg>
+    <h2 class="h">Regalos</h2>
+    <p class="detail muted">Si no sabés qué regalarme, te dejo mi alias:</p>
+    <div class="phone"><strong id="alias" style="font-weight:600;color:var(--gold-hi);font-size:1.4rem;user-select:all">more.agus.alarcon</strong><button class="copy" id="copyAlias" type="button">Copiar</button></div>
+  </section>
+
   <footer class="closing">
     <svg class="orn" viewBox="0 0 170 24" aria-hidden="true"><path d="M8 12h58M104 12h58" stroke="#d9b779" stroke-width="1" opacity=".6"/><path d="M85 2l2.6 7.4L95 12l-7.4 2.6L85 22l-2.6-7.4L75 12l7.4-2.6z" fill="#f4dfb0"/><circle cx="70" cy="12" r="1.6" fill="#d9b779"/><circle cx="100" cy="12" r="1.6" fill="#d9b779"/></svg>
     <p class="quote">Tu presencia es el mejor regalo.</p>
@@ -267,6 +274,12 @@ section, header, footer { text-align: center; padding-left: max(28px, env(safe-a
     function done(m) { b.textContent = m; setTimeout(function () { b.textContent = 'Copiar'; }, 1800); }
     function fb() { var r = document.createRange(); r.selectNodeContents(document.getElementById('tel')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Seleccionado'); }
     try { navigator.clipboard.writeText('+5493476403692').then(function () { done('Copiado'); }, fb); } catch (e) { fb(); }
+  });
+  document.getElementById('copyAlias').addEventListener('click', function () {
+    var b = this;
+    function done(m) { b.textContent = m; setTimeout(function () { b.textContent = 'Copiar'; }, 1800); }
+    function fb() { var r = document.createRange(); r.selectNodeContents(document.getElementById('alias')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Seleccionado'); }
+    try { navigator.clipboard.writeText('more.agus.alarcon').then(function () { done('Copiado'); }, fb); } catch (e) { fb(); }
   });
 })();
 </script>
