@@ -153,7 +153,7 @@ section, header, footer { text-align: center; padding-left: max(28px, env(safe-a
     <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="13" width="34" height="23" rx="2.5"/><path d="M7 15l17 12 17-12"/><path d="M36 6l1.2 3.3L40.5 10.5l-3.3 1.2L36 15l-1.2-3.3-3.3-1.2 3.3-1.2z"/></svg>
     <h2 class="h">Tarjeta</h2>
     <p class="detail muted">Valor de la tarjeta</p>
-    <p class="detail"><strong>$60.000</strong></p>
+    <p class="detail"><strong id="precio">$60.000</strong></p>
   </section>
 
   <section class="block">
@@ -256,6 +256,9 @@ section, header, footer { text-align: center; padding-left: max(28px, env(safe-a
     mb.hidden = false; song.volume = .85; play();
   });
   mb.addEventListener('click', function () { if (song.paused) play(); else { song.pause(); setUI(false); } });
+
+  // card value by link: ?t=2 shows the second price
+  try { var q = new URLSearchParams(location.search); if (q.get('t') === '2' || location.hash === '#t2') document.getElementById('precio').textContent = '$80.000'; } catch (e) {}
 
   // ---- countdown to Sat 27 Nov 2027, 21:00 Argentina (UTC-3)
   var target = Date.UTC(2027, 10, 28, 0, 0, 0);
